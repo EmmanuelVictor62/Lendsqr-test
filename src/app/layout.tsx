@@ -1,6 +1,13 @@
 import type { Metadata } from "next";
 import "@/styles/style.scss";
 
+import { Work_Sans } from "next/font/google";
+
+const workSans = Work_Sans({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+});
+
 export const metadata: Metadata = {
   title: "Lendsqr Frontend Test App",
   description:
@@ -17,7 +24,6 @@ export const metadata: Metadata = {
     "Frontend Engineering",
   ],
   creator: "Emmanuel Victor",
-  viewport: "width=device-width, initial-scale=1",
   openGraph: {
     title: "Lendsqr Frontend Test App",
     description:
@@ -34,7 +40,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className={workSans.className} suppressHydrationWarning>
       <body>{children}</body>
     </html>
   );
