@@ -1,6 +1,7 @@
 "use client";
 import Image from "next/image";
-import { useForm } from "react-hook-form";
+import { useRouter } from "next/navigation";
+import { SubmitHandler, useForm } from "react-hook-form";
 
 import Icon from "@/components/Icon";
 import Button from "@/components/Button";
@@ -8,7 +9,7 @@ import Input from "@/components/Input";
 
 import styles from "./page.module.scss";
 
-type Inputs = {
+type LoginInputs = {
   email: string;
   password: string;
 };
@@ -16,9 +17,16 @@ type Inputs = {
 export default function Home() {
   const {
     register,
+    handleSubmit,
     formState: { errors },
-  } = useForm<Inputs>();
+  } = useForm<LoginInputs>();
 
+  const router = useRouter();
+
+  const handleLogin: SubmitHandler<LoginInputs> = (data) => {
+    router.push("/dashboard");
+    console.log(data);
+  };
   return (
     <div className={styles["home"]}>
       <div className={styles["home__image-wrapper"]}>
@@ -33,7 +41,10 @@ export default function Home() {
         />
       </div>
       <div className={styles["home__form-wrapper"]}>
-        <form className={styles["home__form"]}>
+        <form
+          className={styles["home__form"]}
+          onSubmit={handleSubmit(handleLogin)}
+        >
           <div className={styles["home__form-heading-container"]}>
             <h1 className={styles["home__form-heading"]}>Welcome!</h1>
             <p className={styles["home__form-heading-text"]}>
