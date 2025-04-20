@@ -1,0 +1,8 @@
+@import "../../../styles/abstracts/variables";
+
+.layout {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: $col-light-blue-2;
+}

@@ -1,0 +1,66 @@
+@import "../../styles/abstracts/functions";
+@import "../../styles/abstracts/mixins";
+@import "../../styles/abstracts/variables";
+
+.header {
+  background-color: $col-white;
+  display: flex;
+  align-items: center;
+  padding: 30px;
+  &__input {
+    flex: 1;
+    height: 100%;
+    border: none;
+    padding-left: 20px;
+    font-size: 14px;
+    border: 1px solid rgba(33, 63, 125, 0.2);
+    @include border-radius(8px 0px 0px 8px);
+    &::placeholder {
+      color: $col-grey-1;
+    }
+    &-container {
+      display: flex;
+      align-items: center;
+      margin-left: 20%;
+      height: 40px;
+      width: 400px;
+    }
+    &-button {
+      height: 100%;
+      width: 56px;
+      background-color: $col-light-blue-1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      @include border-radius(0px 8px 8px 0px);
+    }
+  }
+  &__avatar {
+    margin-left: 30px;
+    @include border-radius(50%);
+    &-wrapper {
+      margin-left: auto;
+      display: flex;
+      align-items: center;
+      margin-right: 30px;
+    }
+    &-doc-link {
+      font-size: 16px;
+      font-weight: 400;
+      color: $col-blue-1;
+      text-decoration: underline;
+    }
+    &-bell-icon {
+      margin-left: 47px;
+    }
+    &-name {
+      margin-left: 10px;
+      font-size: 16px;
+      font-weight: 500;
+      color: $col-blue-1;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+  }
+}
