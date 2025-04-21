@@ -4,6 +4,14 @@ import Search from "./search.svg";
 import Bell from "./bell.svg";
 import CaretDown from "./caret-down.svg";
 import LogoSmall from "./logo_small.svg";
+import Home from "./home.svg";
+import Briefcase from "./briefcase.svg";
+import Clipboard from "./clipboard-list.svg";
+import Settings from "./galaxy.svg";
+import Users from "./user-friends.svg";
+import Guarantors from "./users.svg";
+import Slider from "./sliders-h 1.svg";
+import ArrowDown from "./arrow-down.svg";
 
 const icons = {
   favicon: Favicon,
@@ -12,6 +20,16 @@ const icons = {
   bell: Bell,
   caretDown: CaretDown,
   logoSmall: LogoSmall,
+  home: Home,
+  briefcase: Briefcase,
+  clipboard: Clipboard,
+  settings: Settings,
+  users: Users,
+  guarantors: Guarantors,
+  slider: Slider,
+  arrowDown: ArrowDown,
 };
+
+export type IconTypes = keyof typeof icons;
 
 export default icons;
