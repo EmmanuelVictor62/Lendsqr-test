@@ -11,7 +11,7 @@ interface StatusPillProps {
 const StatusPill: React.FC<StatusPillProps> = ({ status }) => {
   return (
     <button
-      data-status={status.toLowerCase()}
+      data-status={status?.toLowerCase()}
       className={styles["status-pill"]}
     >
       {status}

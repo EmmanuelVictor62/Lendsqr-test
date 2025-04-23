@@ -1,7 +1,7 @@
 import React from "react";
 
 import Icon from "@/components/Icon";
-import StatusPill from "@/components/StatusPill";
+import StatusPill, { StatusType } from "@/components/StatusPill";
 
 import styles from "./table-card.module.scss";
 
@@ -24,12 +24,12 @@ const UsersTableCard: React.FC<UsersTableCardProps> = ({
 }) => {
   return (
     <div className={styles["table-card"]}>
-      <p className={styles["table-card__organization"]}>Lendsqr</p>
-      <p className={styles["table-card__username"]}>Adedeji</p>
-      <p className={styles["table-card__email"]}>adedeji@gmail.com</p>
-      <p className={styles["table-card__phoneNumber"]}>7049011040</p>
-      <p className={styles["table-card__date"]}>May 15, 2020 10:00AM</p>
-      <StatusPill status="Active" />
+      <p className={styles["table-card__organization"]}>{organization} </p>
+      <p className={styles["table-card__username"]}>{username} </p>
+      <p className={styles["table-card__email"]}>{email} </p>
+      <p className={styles["table-card__phoneNumber"]}>{phoneNumber} </p>
+      <p className={styles["table-card__date"]}>{dateJoined} </p>
+      <StatusPill status={status as StatusType} />
       <button className={styles["table-card__ellipse-icon"]}>
         <Icon name="ellipse" />
       </button>

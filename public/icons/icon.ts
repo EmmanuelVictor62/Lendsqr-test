@@ -18,6 +18,8 @@ import LoanRounded from "./loan-rounded.svg";
 import SavingsRounded from "./savings-rounded.svg";
 import Filter from "./filter-results-button.svg";
 import Ellipse from "./ellipse.svg";
+import ArrowLeft from "./arrow-left.svg";
+import ArrowRight from "./arrow-right.svg";
 
 const icons = {
   favicon: Favicon,
@@ -40,6 +42,8 @@ const icons = {
   savingsRounded: SavingsRounded,
   filter: Filter,
   ellipse: Ellipse,
+  arrowLeft: ArrowLeft,
+  arrowRight: ArrowRight,
 };
 
 export type IconTypes = keyof typeof icons;

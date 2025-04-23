@@ -1,6 +1,8 @@
 import React from "react";
 import ReactPaginate from "react-paginate";
 
+import Icon from "../Icon";
+
 import styles from "./pagination.module.scss";
 
 interface PaginationProps {
@@ -22,26 +24,24 @@ const Pagination: React.FC<PaginationProps> = ({
   const showingTo = Math.min(offset + itemsPerPage, totalItems);
 
   return (
-    <div className={styles["pagination"]}>
+    <div className={styles["pagination__container"]}>
       <p className={styles["pagination__info"]}>
         Showing
-        <button className={styles["pagination__info-btn"]}>
-          {offset + 1}-{showingTo}
-        </button>
+        <button className={styles["pagination__info-btn"]}>{showingTo}</button>
         out of {totalItems}
       </p>
 
       <ReactPaginate
-        previousLabel={"<"}
-        nextLabel={">"}
+        previousLabel={<Icon name="arrowLeft" />}
+        nextLabel={<Icon name="arrowRight" />}
         breakLabel={"..."}
         pageCount={pageCount}
         marginPagesDisplayed={2}
-        pageRangeDisplayed={5}
+        pageRangeDisplayed={3}
         onPageChange={onPageChange}
         forcePage={currentPage}
-        containerClassName={styles.pagination}
-        activeClassName={styles.activePage}
+        containerClassName={styles["pagination"]}
+        activeClassName={styles["pagination__active-page"]}
       />
     </div>
   );
