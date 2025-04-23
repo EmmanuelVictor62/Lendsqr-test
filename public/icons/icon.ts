@@ -12,6 +12,10 @@ import Users from "./user-friends.svg";
 import Guarantors from "./users.svg";
 import Slider from "./sliders-h 1.svg";
 import ArrowDown from "./arrow-down.svg";
+import UserRounded from "./users-rounded.svg";
+import PeopleRounded from "./people-rounded.svg";
+import LoanRounded from "./loan-rounded.svg";
+import SavingsRounded from "./savings-rounded.svg";
 
 const icons = {
   favicon: Favicon,
@@ -28,6 +32,10 @@ const icons = {
   guarantors: Guarantors,
   slider: Slider,
   arrowDown: ArrowDown,
+  userRounded: UserRounded,
+  peopleRounded: PeopleRounded,
+  loanRounded: LoanRounded,
+  savingsRounded: SavingsRounded,
 };
 
 export type IconTypes = keyof typeof icons;

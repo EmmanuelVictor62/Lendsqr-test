@@ -15,7 +15,9 @@ export default function PagesLayout({
       </div>
       <div className={styles["pages-layout__children-wrapper"]}>
         <Sidebar />
-        {children}
+        <div className={styles["pages-layout__children-container"]}>
+          {children}
+        </div>
       </div>
     </div>
   );

@@ -11,8 +11,15 @@
     left: 0;
     right: 0;
   }
-  &__children-wrapper {
-    display: flex;
-    height: 100%;
+  &__children {
+    &-wrapper {
+      display: flex;
+      height: 100%;
+    }
+    &-container {
+      padding-top: 160px;
+      padding-left: 60px;
+      flex: 1;
+    }
   }
 }

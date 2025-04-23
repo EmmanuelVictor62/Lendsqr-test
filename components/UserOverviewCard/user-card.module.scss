@@ -1,0 +1,26 @@
+@import "../../styles/abstracts/functions";
+@import "../../styles/abstracts/mixins";
+@import "../../styles/abstracts/variables";
+
+.card {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 12px;
+  padding: 20px 30px;
+  background-color: $col-white;
+  border: 1px solid rgba(33, 63, 125, 0.06);
+  box-shadow: 3px 5px 20px 0px #0000000a;
+  @include border-radius(4px);
+  &__text {
+    font-size: 14px;
+    font-weight: 500;
+    color: $col-grey-1;
+    text-transform: uppercase;
+  }
+  &__number {
+    font-size: 24px;
+    font-weight: 500;
+    color: $col-blue-1;
+  }
+}

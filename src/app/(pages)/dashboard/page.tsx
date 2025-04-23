@@ -4,7 +4,7 @@ import styles from "./dashboard.module.scss";
 const Dashboard: React.FC = () => {
   return (
     <div className={styles["dashboard"]}>
-      <h1>Hello World</h1>
+      <h1>Dashboard</h1>
     </div>
   );
 };

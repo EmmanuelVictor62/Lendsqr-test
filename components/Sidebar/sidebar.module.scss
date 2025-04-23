@@ -3,6 +3,7 @@
 @import "../../styles/abstracts/variables";
 
 .sidebar {
+  flex-shrink: 0;
   width: 283px;
   height: 100%;
   background-color: $col-white;
