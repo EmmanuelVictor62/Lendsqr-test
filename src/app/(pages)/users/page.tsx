@@ -4,6 +4,7 @@ import styles from "./users.module.scss";
 import UserOverviewCard, {
   UserOverviewCardProps,
 } from "@/components/UserOverviewCard";
+import Icon from "@/components/Icon";
 
 const Users: React.FC = () => {
   const usersData: UserOverviewCardProps[] = [
@@ -40,6 +41,26 @@ const Users: React.FC = () => {
             number={data?.number}
           />
         ))}
+      </div>
+      <div className={styles["users__table"]}>
+        <button className={styles["users__table-button"]}>
+          Organization <Icon name="filter" />
+        </button>
+        <button className={styles["users__table-button"]}>
+          Username <Icon name="filter" />
+        </button>
+        <button className={styles["users__table-button"]}>
+          Email <Icon name="filter" />
+        </button>
+        <button className={styles["users__table-button"]}>
+          Phone number <Icon name="filter" />
+        </button>
+        <button className={styles["users__table-button"]}>
+          Date Joined <Icon name="filter" />
+        </button>
+        <button className={styles["users__table-button"]}>
+          Status <Icon name="filter" />
+        </button>
       </div>
     </div>
   );

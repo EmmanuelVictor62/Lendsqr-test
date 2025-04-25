@@ -16,6 +16,7 @@ import UserRounded from "./users-rounded.svg";
 import PeopleRounded from "./people-rounded.svg";
 import LoanRounded from "./loan-rounded.svg";
 import SavingsRounded from "./savings-rounded.svg";
+import Filter from "./filter-results-button.svg";
 
 const icons = {
   favicon: Favicon,
@@ -36,6 +37,7 @@ const icons = {
   peopleRounded: PeopleRounded,
   loanRounded: LoanRounded,
   savingsRounded: SavingsRounded,
+  filter: Filter,
 };
 
 export type IconTypes = keyof typeof icons;
