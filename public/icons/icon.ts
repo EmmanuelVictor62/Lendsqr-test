@@ -17,6 +17,7 @@ import PeopleRounded from "./people-rounded.svg";
 import LoanRounded from "./loan-rounded.svg";
 import SavingsRounded from "./savings-rounded.svg";
 import Filter from "./filter-results-button.svg";
+import Ellipse from "./ellipse.svg";
 
 const icons = {
   favicon: Favicon,
@@ -38,6 +39,7 @@ const icons = {
   loanRounded: LoanRounded,
   savingsRounded: SavingsRounded,
   filter: Filter,
+  ellipse: Ellipse,
 };
 
 export type IconTypes = keyof typeof icons;

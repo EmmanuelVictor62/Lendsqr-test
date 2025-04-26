@@ -1,10 +1,12 @@
 import React from "react";
 
-import styles from "./users.module.scss";
 import UserOverviewCard, {
   UserOverviewCardProps,
 } from "@/components/UserOverviewCard";
 import Icon from "@/components/Icon";
+
+import styles from "./users.module.scss";
+import UsersTableCard from "./UsersTableCard";
 
 const Users: React.FC = () => {
   const usersData: UserOverviewCardProps[] = [
@@ -43,24 +45,29 @@ const Users: React.FC = () => {
         ))}
       </div>
       <div className={styles["users__table"]}>
-        <button className={styles["users__table-button"]}>
-          Organization <Icon name="filter" />
-        </button>
-        <button className={styles["users__table-button"]}>
-          Username <Icon name="filter" />
-        </button>
-        <button className={styles["users__table-button"]}>
-          Email <Icon name="filter" />
-        </button>
-        <button className={styles["users__table-button"]}>
-          Phone number <Icon name="filter" />
-        </button>
-        <button className={styles["users__table-button"]}>
-          Date Joined <Icon name="filter" />
-        </button>
-        <button className={styles["users__table-button"]}>
-          Status <Icon name="filter" />
-        </button>
+        <div className={styles["users__table-header"]}>
+          <button className={styles["users__table-header-button"]}>
+            Organization <Icon name="filter" />
+          </button>
+          <button className={styles["users__table-header-button"]}>
+            Username <Icon name="filter" />
+          </button>
+          <button className={styles["users__table-header-button"]}>
+            Email <Icon name="filter" />
+          </button>
+          <button className={styles["users__table-header-button"]}>
+            Phone number <Icon name="filter" />
+          </button>
+          <button className={styles["users__table-header-button"]}>
+            Date Joined <Icon name="filter" />
+          </button>
+          <button className={styles["users__table-header-button"]}>
+            Status <Icon name="filter" />
+          </button>
+        </div>
+        <div className={styles["users__table-card-wrapper"]}>
+          <UsersTableCard />
+        </div>
       </div>
     </div>
   );
