@@ -11,6 +11,8 @@ export const getUsers = async () => {
       },
     });
 
+    localStorage.setItem("users", JSON.stringify(data));
+
     return { data };
   } catch (error) {
     throw error;

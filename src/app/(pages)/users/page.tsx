@@ -1,17 +1,17 @@
 "use client";
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useEffect, useState } from "react";
 
+import Icon from "@/components/Icon";
+import UsersTableCard from "./UsersTableCard";
+import Pagination from "@/components/Pagination";
+import { LoadingCards } from "@/components/LoadingCard";
 import UserOverviewCard, {
   UserOverviewCardProps,
 } from "@/components/UserOverviewCard";
-import Icon from "@/components/Icon";
-import UsersTableCard from "./UsersTableCard";
 
 import { getUsers } from "services/user";
 
 import styles from "./users.module.scss";
-import Pagination from "@/components/Pagination";
-import { LoadingCards } from "@/components/LoadingCard";
 
 type UserType = {
   username: string;
@@ -28,6 +28,14 @@ const Users: React.FC = () => {
   const [currentPage, setCurrentPage] = useState<number>(0);
 
   const usersPerPage = 10;
+  const offset = currentPage * usersPerPage;
+  const currentUsers = users.slice(offset, offset + usersPerPage);
+  const activeUsers = users?.filter((user) => user?.status === "Active");
+  const pageCount = Math.ceil(users.length / usersPerPage);
+
+  const handlePageChange = ({ selected }: { selected: number }) => {
+    setCurrentPage(selected);
+  };
 
   useEffect(() => {
     const fetchData = async () => {
@@ -45,19 +53,6 @@ const Users: React.FC = () => {
 
     fetchData();
   }, []);
-
-  const activeUsers = useMemo(() => {
-    const activeUsers = users?.filter((user) => user?.status === "Active");
-    return activeUsers;
-  }, [users]);
-
-  const handlePageChange = ({ selected }: { selected: number }) => {
-    setCurrentPage(selected);
-  };
-
-  const offset = currentPage * usersPerPage;
-  const currentUsers = users.slice(offset, offset + usersPerPage);
-  const pageCount = Math.ceil(users.length / usersPerPage);
 
   const usersData: UserOverviewCardProps[] = [
     {
