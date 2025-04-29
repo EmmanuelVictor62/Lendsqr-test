@@ -20,6 +20,9 @@ import Filter from "./filter-results-button.svg";
 import Ellipse from "./ellipse.svg";
 import ArrowLeft from "./arrow-left.svg";
 import ArrowRight from "./arrow-right.svg";
+import Eye from "./eye.svg";
+import UserCancel from "./user-cancel.svg";
+import UserMark from "./user-mark.svg";
 
 const icons = {
   favicon: Favicon,
@@ -44,6 +47,9 @@ const icons = {
   ellipse: Ellipse,
   arrowLeft: ArrowLeft,
   arrowRight: ArrowRight,
+  eye: Eye,
+  userCancel: UserCancel,
+  userMark: UserMark,
 };
 
 export type IconTypes = keyof typeof icons;

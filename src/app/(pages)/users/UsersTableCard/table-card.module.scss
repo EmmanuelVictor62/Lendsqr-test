@@ -18,4 +18,9 @@
     font-weight: 400;
     color: $col-grey-1;
   }
+  &__menu {
+    &-button {
+      position: relative;
+    }
+  }
 }
