@@ -13,12 +13,13 @@ import { getUsers } from "services/user";
 
 import styles from "./users.module.scss";
 
+type UserStatusType = "Active" | "Inactive" | "Pending" | "Blacklisted";
 type UserType = {
   username: string;
   email: string;
   phoneNumber: string;
   dateJoined: string;
-  status: "Active" | "Inactive" | "Pending" | "Blacklisted";
+  status: UserStatusType;
   organization: string;
 };
 
@@ -35,6 +36,14 @@ const Users: React.FC = () => {
 
   const handlePageChange = ({ selected }: { selected: number }) => {
     setCurrentPage(selected);
+  };
+
+  const handleBlacklistUser = (email: string, newStatus: UserStatusType) => {
+    const updatedUsers = users.map((user) =>
+      user.email === email ? { ...user, status: newStatus } : user
+    );
+    setUsers(updatedUsers);
+    localStorage.setItem("users", JSON.stringify(updatedUsers));
   };
 
   useEffect(() => {
@@ -125,6 +134,9 @@ const Users: React.FC = () => {
                   dateJoined={user?.dateJoined}
                   username={user?.username}
                   status={user?.status}
+                  handleBlacklistUser={() =>
+                    handleBlacklistUser(user.email!, "Blacklisted")
+                  }
                 />
               ))
             )}

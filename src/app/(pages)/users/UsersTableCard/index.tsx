@@ -13,6 +13,7 @@ interface UsersTableCardProps {
   phoneNumber: string;
   dateJoined: string;
   status: string;
+  handleBlacklistUser: () => void;
 }
 
 const UsersTableCard: React.FC<UsersTableCardProps> = ({
@@ -22,6 +23,7 @@ const UsersTableCard: React.FC<UsersTableCardProps> = ({
   phoneNumber,
   dateJoined,
   status,
+  handleBlacklistUser,
 }) => {
   const [toggleDropdown, setToggleDropdown] = useState<boolean>(false);
 
@@ -41,6 +43,7 @@ const UsersTableCard: React.FC<UsersTableCardProps> = ({
       icon: "userCancel",
       label: "Blacklist User",
       handleClick: () => {
+        handleBlacklistUser();
         handleToggleDropdown();
       },
     },
