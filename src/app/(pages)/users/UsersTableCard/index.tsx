@@ -14,6 +14,7 @@ interface UsersTableCardProps {
   dateJoined: string;
   status: string;
   handleBlacklistUser: () => void;
+  handleActivateUser: () => void;
 }
 
 const UsersTableCard: React.FC<UsersTableCardProps> = ({
@@ -24,6 +25,7 @@ const UsersTableCard: React.FC<UsersTableCardProps> = ({
   dateJoined,
   status,
   handleBlacklistUser,
+  handleActivateUser,
 }) => {
   const [toggleDropdown, setToggleDropdown] = useState<boolean>(false);
 
@@ -52,6 +54,7 @@ const UsersTableCard: React.FC<UsersTableCardProps> = ({
       label: "Activate User",
       handleClick: () => {
         handleToggleDropdown();
+        handleActivateUser();
       },
     },
   ];

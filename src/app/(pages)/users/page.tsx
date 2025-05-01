@@ -38,7 +38,7 @@ const Users: React.FC = () => {
     setCurrentPage(selected);
   };
 
-  const handleBlacklistUser = (email: string, newStatus: UserStatusType) => {
+  const handleUpdateUserStatus = (email: string, newStatus: UserStatusType) => {
     const updatedUsers = users.map((user) =>
       user.email === email ? { ...user, status: newStatus } : user
     );
@@ -135,7 +135,10 @@ const Users: React.FC = () => {
                   username={user?.username}
                   status={user?.status}
                   handleBlacklistUser={() =>
-                    handleBlacklistUser(user.email!, "Blacklisted")
+                    handleUpdateUserStatus(user.email!, "Blacklisted")
+                  }
+                  handleActivateUser={() =>
+                    handleUpdateUserStatus(user?.email, "Active")
                   }
                 />
               ))
