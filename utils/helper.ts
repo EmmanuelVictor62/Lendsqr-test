@@ -6,3 +6,11 @@ export const formattedNumber = (value: number | string) => {
 
   return value.toLocaleString("en-NG");
 };
+
+export const generateReadableSlug = (slug: string): string => {
+  return slug
+    ?.toLowerCase()
+    ?.replace(/\s+/g, "-")
+    ?.replace(/\//g, "-")
+    ?.replace(/[^a-zA-Z0-9\-а-яА-ЯёЁ]/g, "");
+};

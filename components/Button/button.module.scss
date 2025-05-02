@@ -11,4 +11,7 @@
   color: $col-white;
   font-weight: 600;
   @include border-radius(8px);
+  &[data-variant="secondary"] {
+    background-color: initial;
+  }
 }

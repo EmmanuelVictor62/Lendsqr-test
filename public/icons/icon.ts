@@ -23,6 +23,10 @@ import ArrowRight from "./arrow-right.svg";
 import Eye from "./eye.svg";
 import UserCancel from "./user-cancel.svg";
 import UserMark from "./user-mark.svg";
+import BackArrow from "./back-arrow.svg";
+import Avatar from "./avatar.svg";
+import StarFilled from "./star-filled.svg";
+import Star from "./star.svg";
 
 const icons = {
   favicon: Favicon,
@@ -50,6 +54,10 @@ const icons = {
   eye: Eye,
   userCancel: UserCancel,
   userMark: UserMark,
+  backArrow: BackArrow,
+  starFilled: StarFilled,
+  star: Star,
+  avatar: Avatar,
 };
 
 export type IconTypes = keyof typeof icons;

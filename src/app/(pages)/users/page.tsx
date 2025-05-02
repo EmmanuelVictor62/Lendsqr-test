@@ -1,5 +1,6 @@
 "use client";
 import React, { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
 
 import Icon from "@/components/Icon";
 import UsersTableCard from "./UsersTableCard";
@@ -10,10 +11,11 @@ import UserOverviewCard, {
 } from "@/components/UserOverviewCard";
 
 import { getUsers } from "services/user";
+import { generateReadableSlug } from "@/utils/helper";
+import { UserStatusType } from "types/user";
 
 import styles from "./users.module.scss";
 
-type UserStatusType = "Active" | "Inactive" | "Pending" | "Blacklisted";
 type UserType = {
   username: string;
   email: string;
@@ -27,6 +29,8 @@ const Users: React.FC = () => {
   const [users, setUsers] = useState<UserType[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
   const [currentPage, setCurrentPage] = useState<number>(0);
+
+  const router = useRouter();
 
   const usersPerPage = 10;
   const offset = currentPage * usersPerPage;
@@ -44,6 +48,13 @@ const Users: React.FC = () => {
     );
     setUsers(updatedUsers);
     localStorage.setItem("users", JSON.stringify(updatedUsers));
+  };
+
+  const handleGoToUser = (username: string, email: string) => {
+    const selectedUser = users?.find((user) => user?.email === email);
+    localStorage.setItem("selectedUser", JSON.stringify(selectedUser));
+
+    router.push(`/users/${generateReadableSlug(username)}`);
   };
 
   useEffect(() => {
@@ -134,6 +145,9 @@ const Users: React.FC = () => {
                   dateJoined={user?.dateJoined}
                   username={user?.username}
                   status={user?.status}
+                  handleViewDetails={() =>
+                    handleGoToUser(user?.username, user?.email)
+                  }
                   handleBlacklistUser={() =>
                     handleUpdateUserStatus(user.email!, "Blacklisted")
                   }

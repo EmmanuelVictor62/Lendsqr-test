@@ -13,6 +13,7 @@ interface UsersTableCardProps {
   phoneNumber: string;
   dateJoined: string;
   status: string;
+  handleViewDetails: () => void;
   handleBlacklistUser: () => void;
   handleActivateUser: () => void;
 }
@@ -24,6 +25,7 @@ const UsersTableCard: React.FC<UsersTableCardProps> = ({
   phoneNumber,
   dateJoined,
   status,
+  handleViewDetails,
   handleBlacklistUser,
   handleActivateUser,
 }) => {
@@ -39,6 +41,7 @@ const UsersTableCard: React.FC<UsersTableCardProps> = ({
       label: "View Details",
       handleClick: () => {
         handleToggleDropdown();
+        handleViewDetails();
       },
     },
     {
