@@ -1,0 +1,26 @@
+@import "../../styles/abstracts/functions";
+@import "../../styles/abstracts/mixins";
+@import "../../styles/abstracts/variables";
+
+.dropdown {
+  position: absolute;
+  top: 20px;
+  right: 10px;
+  width: 180px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px;
+  background-color: $col-white;
+  border: 1px solid rgba(84, 95, 125, 0.04);
+  box-shadow: 3px 5px 20px 0px rgba(0, 0, 0, 0.04);
+  @include z-index(dropdown-menu);
+  &__button {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    font-size: 14px;
+    font-weight: 500;
+    color: $col-grey-1;
+  }
+}

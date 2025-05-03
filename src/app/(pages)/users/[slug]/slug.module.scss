@@ -1,0 +1,117 @@
+@import "../../../../../styles/abstracts/functions";
+@import "../../../../../styles/abstracts/mixins";
+@import "../../../../../styles/abstracts/variables";
+
+.user-details {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  padding-right: 60px;
+  &__back-btn {
+    width: fit-content;
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    font-size: 16px;
+    color: $col-grey-1;
+  }
+  &__heading {
+    font-size: 24px;
+    font-weight: 500;
+    color: $col-blue-1;
+    &-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    &-button {
+      display: flex;
+      gap: 20px;
+      & button {
+        width: fit-content;
+      }
+    }
+  }
+  &__info {
+    display: flex;
+
+    &-wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    &-container {
+      display: flex;
+      flex-direction: column;
+      margin-top: 20px;
+      padding: 30px 30px 0px 30px;
+      background-color: $col-white;
+      box-shadow: 3px 5px 20px 0px #0000000a;
+      border: 1px solid #213f7d0f;
+      @include border-radius(4px);
+    }
+    &-avatar {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 30px;
+      background-color: rgba(33, 63, 125, 0.16);
+      @include border-radius(50%);
+      &-container {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+      }
+    }
+    &-name {
+      font-size: 22px;
+      font-weight: 500;
+      color: $col-blue-1;
+      &-container {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+      &-id {
+        font-size: 14px;
+        color: $col-grey-1;
+      }
+    }
+    &-rating {
+      display: flex;
+      gap: 4px;
+      &-container {
+        // height: 75px;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        align-items: center;
+        justify-content: center;
+        padding: 0px 20px;
+        margin: 10px 30px;
+        border-left: 1px solid rgba(84, 95, 125, 0.2);
+        border-right: 1px solid rgba(84, 95, 125, 0.2);
+      }
+      &-heading {
+        font-size: 14px;
+        color: $col-grey-1;
+        font-weight: 500;
+      }
+    }
+    &-income {
+      font-size: 22px;
+      font-weight: 500;
+      color: $col-blue-1;
+      &-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 8px;
+      }
+      &-bvn {
+        font-size: 12px;
+        color: $col-blue-1;
+      }
+    }
+  }
+}
