@@ -3,11 +3,12 @@ import React, { useEffect, useState } from "react";
 
 import Icon from "@/components/Icon";
 import Button from "@/components/Button";
+import Tabs from "@/components/Tabs";
 
+import GeneralDetails from "./GeneralDetails";
 import { User, UserDetailsTabType } from "types/user";
 
 import styles from "./slug.module.scss";
-import Tabs from "@/components/Tabs";
 
 const UserDetails: React.FC = () => {
   const [user, setUser] = useState<User>(null!);
@@ -19,7 +20,7 @@ const UserDetails: React.FC = () => {
   };
 
   const tabList: Record<UserDetailsTabType, React.ReactNode> = {
-    "General Details": <h1>General Details</h1>,
+    "General Details": <GeneralDetails user={user} />,
     Documents: <h1>Documents</h1>,
     "Bank Details": <h1>Bank Details</h1>,
     Loans: <h1>Loans</h1>,
@@ -95,6 +96,10 @@ const UserDetails: React.FC = () => {
             activeTab={activeTab}
             handleTabClick={handleActiveTab}
           />
+        </div>
+
+        <div className={styles["user-details__tab-content-wrapper"]}>
+          {tabList[activeTab]}
         </div>
       </div>
     </div>
