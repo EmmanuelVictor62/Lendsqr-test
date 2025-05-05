@@ -19,7 +19,6 @@ interface GeneralDetailsProps {
 }
 
 const GeneralDetails: React.FC<GeneralDetailsProps> = ({ user }) => {
-  console.log(user);
   const sections: SectionData[] = [
     {
       heading: "Personal Information",

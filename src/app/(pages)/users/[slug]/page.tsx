@@ -1,5 +1,6 @@
 "use client";
 import React, { useEffect, useState } from "react";
+import Link from "next/link";
 
 import Icon from "@/components/Icon";
 import Button from "@/components/Button";
@@ -36,10 +37,10 @@ const UserDetails: React.FC = () => {
 
   return (
     <div className={styles["user-details"]}>
-      <button className={styles["user-details__back-btn"]}>
+      <Link href={"/users"} className={styles["user-details__back-btn"]}>
         <Icon name="backArrow" />
         Back to Users
-      </button>
+      </Link>
       <div className={styles["user-details__heading-container"]}>
         <h1 className={styles["user-details__heading"]}>User Details</h1>
         <div className={styles["user-details__heading-button"]}>
