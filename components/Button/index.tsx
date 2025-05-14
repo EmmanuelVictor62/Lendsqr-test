@@ -6,15 +6,23 @@ interface ButtonProps {
   type?: "button" | "submit";
   variant?: "primary" | "secondary";
   style?: React.CSSProperties;
+  handleClick?: () => void;
 }
 
-const Button: React.FC<ButtonProps> = ({ label, type, variant, style }) => {
+const Button: React.FC<ButtonProps> = ({
+  label,
+  type,
+  variant,
+  style,
+  handleClick,
+}) => {
   return (
     <button
       type={type}
       data-variant={variant}
       className={styles["button"]}
       style={style}
+      onClick={handleClick}
     >
       {label}
     </button>
