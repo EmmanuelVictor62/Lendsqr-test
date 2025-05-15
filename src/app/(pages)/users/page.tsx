@@ -9,6 +9,7 @@ import { LoadingCards } from "@/components/LoadingCard";
 import UserOverviewCard, {
   UserOverviewCardProps,
 } from "@/components/UserOverviewCard";
+import FilterDropdown, { FilterFieldProps } from "@/components/Filter";
 
 import { getUsers } from "services/user";
 import { generateReadableSlug } from "@/utils/helper";
@@ -29,6 +30,8 @@ const Users: React.FC = () => {
   const [users, setUsers] = useState<UserType[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
   const [currentPage, setCurrentPage] = useState<number>(0);
+  const [toggleFilterDropdown, setToggleFilterDropdown] =
+    useState<boolean>(false);
 
   const router = useRouter();
 
@@ -55,6 +58,23 @@ const Users: React.FC = () => {
     localStorage.setItem("selectedUser", JSON.stringify(selectedUser));
 
     router.push(`/users/${generateReadableSlug(username)}`);
+  };
+
+  const handleFilter = (filters: Record<string, string>) => {
+    const filteredUsers = users.filter((user) => {
+      return Object.entries(filters).every(([key, value]) => {
+        if (!value) return true;
+        return user[key as keyof UserType]
+          ?.toString()
+          .toLowerCase()
+          .includes(value.toLowerCase());
+      });
+    });
+    setUsers(filteredUsers);
+  };
+
+  const handleReset = () => {
+    setUsers(users);
   };
 
   useEffect(() => {
@@ -97,6 +117,32 @@ const Users: React.FC = () => {
     },
   ];
 
+  const filterFields: FilterFieldProps[] = [
+    {
+      name: "organization",
+      label: "Organization",
+      type: "select",
+      placeholder: "Organization",
+      options: Array.from(new Set(users?.map((user) => user?.organization))),
+    },
+    { name: "username", label: "Username", type: "text", placeholder: "User" },
+    { name: "email", label: "Email", type: "text", placeholder: "Email" },
+    { name: "date", label: "Date", type: "date", placeholder: "Date" },
+    {
+      name: "phoneNumber",
+      label: "Phone Number",
+      type: "text",
+      placeholder: "Phone Number",
+    },
+    {
+      name: "status",
+      label: "Status",
+      type: "select",
+      placeholder: "Status",
+      options: ["Active", "Inactive", "Blacklisted"],
+    },
+  ];
+
   return (
     <div className={styles["users"]}>
       <h1 className={styles["users__heading"]}>Users</h1>
@@ -113,7 +159,10 @@ const Users: React.FC = () => {
       <div className={styles["users__table-wrapper"]}>
         <div className={styles["users__table"]}>
           <div className={styles["users__table-header"]}>
-            <button className={styles["users__table-header-button"]}>
+            <button
+              className={styles["users__table-header-button"]}
+              onClick={() => setToggleFilterDropdown(!toggleFilterDropdown)}
+            >
               Organization <Icon name="filter" />
             </button>
             <button className={styles["users__table-header-button"]}>
@@ -166,6 +215,13 @@ const Users: React.FC = () => {
           itemsPerPage={usersPerPage}
           totalItems={users.length}
         />
+        {toggleFilterDropdown && (
+          <FilterDropdown
+            handleFilter={handleFilter}
+            handleReset={handleReset}
+            fields={filterFields}
+          />
+        )}
       </div>
     </div>
   );
