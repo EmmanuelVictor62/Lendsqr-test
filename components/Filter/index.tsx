@@ -56,7 +56,7 @@ const FilterDropdown: React.FC<FilterProps> = ({
               <input
                 type="text"
                 placeholder={field?.placeholder}
-                value={filterValues[field?.name]}
+                value={filterValues[field?.name] || ""}
                 onChange={(e) => handleInputChange(field?.name, e.target.value)}
               />
             )}
@@ -64,7 +64,7 @@ const FilterDropdown: React.FC<FilterProps> = ({
               <input
                 type="date"
                 placeholder={field?.placeholder}
-                value={filterValues[field?.name]}
+                value={filterValues[field?.name] || ""}
                 onChange={(e) => handleInputChange(field?.name, e.target.value)}
               />
             )}

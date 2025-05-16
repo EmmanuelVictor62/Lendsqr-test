@@ -28,6 +28,7 @@ type UserType = {
 
 const Users: React.FC = () => {
   const [users, setUsers] = useState<UserType[]>([]);
+  const [allUsers, setAllUsers] = useState<UserType[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
   const [currentPage, setCurrentPage] = useState<number>(0);
   const [toggleFilterDropdown, setToggleFilterDropdown] =
@@ -61,20 +62,24 @@ const Users: React.FC = () => {
   };
 
   const handleFilter = (filters: Record<string, string>) => {
-    const filteredUsers = users.filter((user) => {
+    const filteredUsers = allUsers.filter((user) => {
       return Object.entries(filters).every(([key, value]) => {
         if (!value) return true;
-        return user[key as keyof UserType]
-          ?.toString()
-          .toLowerCase()
-          .includes(value.toLowerCase());
+
+        const userValue =
+          key === "Date Joined"
+            ? user.dateJoined?.split("T")[0]
+            : user[key.toLowerCase().replace(" ", "") as keyof UserType];
+
+        return String(userValue).toLowerCase().includes(value.toLowerCase());
       });
     });
+
     setUsers(filteredUsers);
   };
 
   const handleReset = () => {
-    setUsers(users);
+    setUsers(allUsers);
   };
 
   useEffect(() => {
@@ -85,6 +90,7 @@ const Users: React.FC = () => {
         const { data } = await getUsers();
 
         setUsers(data);
+        setAllUsers(data);
         setLoading(false);
       } catch {
         setLoading(false);
@@ -139,7 +145,7 @@ const Users: React.FC = () => {
       label: "Status",
       type: "select",
       placeholder: "Status",
-      options: ["Active", "Inactive", "Blacklisted"],
+      options: ["Active", "Inactive", "Pending", "Blacklisted"],
     },
   ];
 
@@ -184,6 +190,16 @@ const Users: React.FC = () => {
           <div className={styles["users__table-card-wrapper"]}>
             {loading ? (
               <LoadingCards length={5} />
+            ) : currentUsers?.length < 1 ? (
+              <div className={styles["users__empty-card"]}>
+                <Icon name="notFound" />
+                <div className={styles["users__empty-card-text-container"]}>
+                  <p className={styles["users__empty-card-text"]}>No Result</p>
+                  <p className={styles["users__empty-card-text-description"]}>
+                    Pls reset to load all results
+                  </p>
+                </div>
+              </div>
             ) : (
               currentUsers?.map((user) => (
                 <UsersTableCard
