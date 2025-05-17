@@ -196,7 +196,7 @@ const Users: React.FC = () => {
                 <div className={styles["users__empty-card-text-container"]}>
                   <p className={styles["users__empty-card-text"]}>No Result</p>
                   <p className={styles["users__empty-card-text-description"]}>
-                    Pls reset to load all results
+                    Oops, no results found
                   </p>
                 </div>
               </div>

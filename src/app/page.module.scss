@@ -59,7 +59,7 @@
     &-forgot-password-btn {
       width: fit-content;
       font-weight: 600;
-      font-size: 12px;
+      font-size: toRem(12px);
       font-family: $AvenirNext;
       text-transform: uppercase;
       color: $col-light-blue-1;

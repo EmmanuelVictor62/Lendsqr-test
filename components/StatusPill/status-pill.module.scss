@@ -5,7 +5,7 @@
 .status-pill {
   padding: 7px 12px;
   @include border-radius(100px);
-  font-size: 14px;
+  font-size: toRem(14px);
   font-weight: 400;
   width: fit-content;
   &[data-status="inactive"] {

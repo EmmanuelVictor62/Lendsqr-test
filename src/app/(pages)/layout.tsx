@@ -1,7 +1,9 @@
 import React from "react";
-import styles from "./layout.module.scss";
+
 import Header from "@/components/Header";
 import Sidebar from "@/components/Sidebar";
+
+import styles from "./layout.module.scss";
 
 export default function PagesLayout({
   children,

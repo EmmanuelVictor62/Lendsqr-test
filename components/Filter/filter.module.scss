@@ -28,13 +28,13 @@
         @include border-radius(8px);
 
         &::placeholder {
-          font-size: 14px;
+          font-size: toRem(14px);
           color: $col-grey-1;
         }
       }
     }
     &-label {
-      font-size: 14px;
+      font-size: toRem(14px);
       font-weight: 500;
       color: $col-grey-1;
     }
