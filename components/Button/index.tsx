@@ -18,6 +18,7 @@ const Button: React.FC<ButtonProps> = ({
 }) => {
   return (
     <button
+      role="button"
       type={type}
       data-variant={variant}
       className={styles["button"]}
