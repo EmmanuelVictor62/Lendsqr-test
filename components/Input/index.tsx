@@ -23,9 +23,14 @@ const Input: React.FC<InputProps> = ({
 
   return (
     <div className={styles["input__wrapper"]}>
-      {label && <label className={styles["input__label"]}>{label}</label>}
+      {label && (
+        <label htmlFor={label} className={styles["input__label"]}>
+          {label}
+        </label>
+      )}
       <div className={styles["input__container"]} style={style}>
         <input
+          id={label}
           type={showPassword ? "text" : type}
           className={styles["input"]}
           placeholder={placeholder}
