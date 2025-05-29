@@ -27,7 +27,12 @@ const Pagination: React.FC<PaginationProps> = ({
     <div className={styles["pagination__container"]}>
       <p className={styles["pagination__info"]}>
         Showing
-        <button className={styles["pagination__info-btn"]}>{showingTo}</button>
+        <button
+          className={styles["pagination__info-btn"]}
+          data-testid="pagination-info-btn"
+        >
+          {showingTo}
+        </button>
         out of {totalItems}
       </p>
 
