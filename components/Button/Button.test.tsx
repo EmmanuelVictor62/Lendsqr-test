@@ -24,6 +24,12 @@ describe("Button Component", () => {
     );
   });
 
+  test("shows loading state when loading", () => {
+    render(<Button label="Submit" type="submit" loading={true} />);
+
+    expect(screen.getByTestId("loading-icon")).toBeInTheDocument();
+  });
+
   test("calls handleClick when clicked", () => {
     const handleClick = jest.fn();
     render(<Button label="Click" handleClick={handleClick} />);
