@@ -1,0 +1,59 @@
+@import "../../styles/abstracts/functions";
+@import "../../styles/abstracts/mixins";
+@import "../../styles/abstracts/variables";
+
+.pagination {
+  display: flex;
+  gap: 8px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  & li {
+    margin: 0 5px;
+    & a {
+      font-size: 16px;
+      color: rgba(84, 95, 125, 0.6);
+      cursor: pointer;
+      text-decoration: none;
+      &:hover {
+        font-weight: 500;
+      }
+      &[aria-label="Previous page"],
+      &[aria-label="Next page"] {
+        padding: 5px 10px;
+        background-color: rgba(33, 63, 125, 0.1);
+        @include border-radius(4px);
+      }
+    }
+  }
+
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  &__info {
+    font-size: 14px;
+    color: $col-grey-1;
+    display: flex;
+    align-items: center;
+    &-btn {
+      font-size: 14px;
+      font-weight: 500;
+      color: $col-blue-1;
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      padding: 7px 12px;
+      margin: 0px 10px;
+      background-color: rgba(33, 63, 125, 0.1);
+      @include border-radius(4px);
+    }
+  }
+  &__active-page {
+    & a {
+      color: $col-grey-1 !important;
+      font-weight: 500;
+    }
+  }
+}

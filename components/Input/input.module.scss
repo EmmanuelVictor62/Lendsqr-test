@@ -1,0 +1,46 @@
+@import "../../styles/abstracts/variables";
+@import "../../styles/abstracts/functions";
+@import "../../styles/abstracts/mixins";
+
+.input {
+  font-size: 14px;
+  flex: 1;
+  border: none;
+  background-color: initial;
+  height: 48px;
+  &::placeholder {
+    color: $col-grey-1;
+    font-size: 14px;
+  }
+  &:-webkit-autofill {
+    background-color: initial !important;
+  }
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  &__label {
+    font-size: 14px;
+    color: $col-grey-1;
+    font-weight: 500;
+  }
+  &__container {
+    border: 1px solid $col-blue-1;
+    @include border-radius(8px);
+    display: flex;
+    align-items: center;
+    padding: 4px 16px;
+  }
+  &__password-button {
+    font-family: $AvenirNext;
+    font-size: 12px;
+    font-weight: 600;
+    color: $col-light-blue-1;
+  }
+  &__error {
+    font-size: 12px;
+    color: red;
+    margin-top: 5px;
+  }
+}

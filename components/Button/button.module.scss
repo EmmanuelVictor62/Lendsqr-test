@@ -1,0 +1,17 @@
+@import "../../styles/abstracts/functions";
+@import "../../styles/abstracts/mixins";
+@import "../../styles/abstracts/variables";
+
+.button {
+  width: 100%;
+  padding: 14px 30px;
+  background-color: $col-light-blue-1;
+  color: $col-white;
+  font-size: 14px;
+  color: $col-white;
+  font-weight: 600;
+  @include border-radius(8px);
+  &[data-variant="secondary"] {
+    background-color: initial;
+  }
+}
