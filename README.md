@@ -1,36 +1,129 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Lendsqr Frontend Assessment
 
-## Getting Started
+This repository contains the implementation of a frontend technical assessment for Lendsqr. The goal was to rebuild selected parts of the Lendsqr Admin Console based on a provided Figma design. The solution was built with a focus on visual accuracy, performance, responsiveness, accessibility, and code quality.
 
-First, run the development server:
+## Live Link
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+[https://emmanuel-victor-lendsqr-fe-test.netlify.app](https://emmanuel-victor-lendsqr-fe-test.netlify.app)
+
+## Figma Design Reference
+
+[Figma URL](https://www.figma.com/file/ZKILoCoIoy1IESdBpq3GNC/Frontend?type=design&node-id=5530-0)
+
+---
+
+## Pages Implemented
+
+- **Login Page** – Authentication UI built per design.
+- **Dashboard** – Visual representation of key metrics and navigation.
+- **Users Page** – Paginated and filterable user list from a mock API.
+- **User Details Page** – Displays detailed info retrieved from local storage based on selected user.
+
+---
+
+## Features
+
+- **Pixel-perfect Implementation**: Close adherence to Figma design in layout, typography, and spacing.
+- **Mocked API with 500 Users**: Generated and served locally for testing and performance simulation.
+- **User Persistence**: Clicking a user on the user list saves their full detail to localStorage. The detail page reads from there.
+- **Responsive Design**: Mobile and desktop breakpoints implemented using SCSS and modern layout techniques.
+- **Accessibility Considerations**: Proper ARIA attributes and semantic HTML used.
+- **Unit Testing**: Coverage includes positive and negative scenarios for components and pagination.
+- **Consistent Code Style**: Modular, well-named, and readable components with TypeScript and SCSS modules.
+
+---
+
+## Technologies Used
+
+- **Framework**: Next.js (React + SSR)
+- **Language**: TypeScript
+- **Styling**: SCSS Modules
+- **Testing**: Jest, React Testing Library
+- **API Simulation**: JSON file mocked within the app (local file, could easily be replaced by external mock server)
+- **State & Routing**: React hooks and Next.js routing
+- **Storage**: localStorage (for user details page)
+
+---
+
+## Folder Structure Overview
+
+```
+user-management/
+│
+├── components/        # Reusable UI components like Pagination, Cards, etc.
+├── constants/         # Static values and config
+├── public/            # Static files (images, favicons, etc.)
+├── services/          # API mocking and service calls
+├── styles/            # SCSS modules and global styles
+├── types/             # TypeScript interfaces and types
+├── utils/             # Utility functions (e.g., date formatters, constants)
+├── __mocks__/         # Jest mock files for SVG and other static assets
+├── src/               # Application-specific pages and features
+├── jest.config.ts     # Jest configuration for testing
+├── next.config.ts     # Next.js configuration
+├── tsconfig.json      # TypeScript configuration
+└── README.md          # This documentation
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## How to Run the App Locally
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1. **Clone the repository**
 
-## Learn More
+```bash
+git clone https://github.com/EmmanuelVictor62/lendsqr-fe-test.git
+cd lendsqr-fe-test
+```
 
-To learn more about Next.js, take a look at the following resources:
+2. **Install dependencies**
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+yarn
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+3. **Start the development server**
 
-## Deploy on Vercel
+```bash
+yarn dev
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+The app will be accessible at `http://localhost:3000`
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+## How to Run Tests
+
+```bash
+yarn test
+```
+
+Jest is configured to handle module aliasing and SVG mocks via the `__mocks__/svgMock.tsx` file. Tests include interaction and rendering validation for key components.
+
+---
+
+## Architectural Decisions
+
+- **Next.js** was chosen for its optimized performance, routing, and support for TypeScript and SCSS out of the box.
+- **localStorage** was used to persist user data across pages without needing a full backend.
+- **Manual mocking** of the user dataset allowed control over API structure and performance.
+
+---
+
+## Notes
+
+- Mock API data is served from a local file (`services/mockUsers.ts`) and mimics paginated API behavior.
+- Unit tests include pagination functionality, and mock components are handled appropriately in Jest config.
+- Design was matched to the Figma spec, including responsiveness and visual hierarchy.
+
+---
+
+## Video Review (Optional)
+
+_A video review can be found [here](#)_ (replace this with Loom link if applicable).
+
+---
+
+## Final Thoughts
+
+This project showcases not only technical capability but also judgment in interpreting and implementing design and behavior details that were intentionally omitted from the instructions. The solution aims to reflect both fidelity to the design and sound engineering practices.

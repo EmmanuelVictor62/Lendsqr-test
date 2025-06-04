@@ -25,10 +25,12 @@ export default function Home() {
 
   const router = useRouter();
 
-  const handleLogin: SubmitHandler<LoginInputs> = async (data) => {
+  const handleLogin: SubmitHandler<LoginInputs> = (data) => {
     console.log(data);
     setLoading(true);
-    await router.push("/dashboard");
+    setTimeout(() => {
+      router.push("/dashboard");
+    }, 2000);
     setLoading(false);
   };
 
