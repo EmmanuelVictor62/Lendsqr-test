@@ -13,6 +13,19 @@
   gap: 30px;
   overflow: auto;
   @include hide-scrollbar;
+  @include respond(mobile-screen) {
+    padding-top: 60px;
+    position: relative;
+  }
+  &__cancel-icon {
+    display: none;
+    @include respond(mobile-screen) {
+      display: block;
+      position: absolute;
+      top: 20px;
+      right: 20px;
+    }
+  }
   &__organization-btn {
     height: 40px;
     width: 100%;

@@ -1,4 +1,5 @@
 "use client";
+import { useState } from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { SubmitHandler, useForm } from "react-hook-form";
@@ -15,6 +16,7 @@ type LoginInputs = {
 };
 
 export default function Home() {
+  const [loading, setLoading] = useState<boolean>(false);
   const {
     register,
     handleSubmit,
@@ -23,10 +25,13 @@ export default function Home() {
 
   const router = useRouter();
 
-  const handleLogin: SubmitHandler<LoginInputs> = (data) => {
-    router.push("/dashboard");
+  const handleLogin: SubmitHandler<LoginInputs> = async (data) => {
     console.log(data);
+    setLoading(true);
+    await router.push("/dashboard");
+    setLoading(false);
   };
+
   return (
     <div className={styles["home"]}>
       <div className={styles["home__image-wrapper"]}>
@@ -74,7 +79,7 @@ export default function Home() {
               Forgot Password?
             </button>
           </div>
-          <Button label="LOG IN" type="submit" />
+          <Button label="LOG IN" type="submit" loading={loading} />
         </form>
       </div>
     </div>

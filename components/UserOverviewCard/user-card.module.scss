@@ -12,6 +12,9 @@
   border: 1px solid rgba(33, 63, 125, 0.06);
   box-shadow: 3px 5px 20px 0px #0000000a;
   @include border-radius(4px);
+  @include respond(mobile-screen) {
+    min-width: 140px;
+  }
   &__text {
     font-size: toRem(14px);
     font-weight: 500;

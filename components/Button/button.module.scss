@@ -14,4 +14,14 @@
   &[data-variant="secondary"] {
     background-color: initial;
   }
+  &[data-loading="true"] {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    opacity: 70%;
+  }
+  & svg {
+    margin: initial;
+  }
 }
