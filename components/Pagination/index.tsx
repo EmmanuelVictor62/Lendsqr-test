@@ -11,6 +11,10 @@ interface PaginationProps {
   onPageChange: (selectedItem: { selected: number }) => void;
   itemsPerPage: number;
   totalItems: number;
+  handleItemsPerPage: (number: number) => void;
+  itemsToShow?: number[];
+  toggleDropdown?: boolean;
+  handleToggleDropdown: () => void;
 }
 
 const Pagination: React.FC<PaginationProps> = ({
@@ -19,22 +23,40 @@ const Pagination: React.FC<PaginationProps> = ({
   onPageChange,
   itemsPerPage,
   totalItems,
+  handleItemsPerPage,
+  itemsToShow,
+  toggleDropdown,
+  handleToggleDropdown,
 }) => {
   const offset = currentPage * itemsPerPage;
   const showingTo = Math.min(offset + itemsPerPage, totalItems);
 
   return (
     <div className={styles["pagination__container"]}>
-      <p className={styles["pagination__info"]}>
+      <div className={styles["pagination__info"]}>
         Showing
         <button
           className={styles["pagination__info-btn"]}
           data-testid="pagination-info-btn"
+          onClick={handleToggleDropdown}
         >
-          {showingTo}
+          {showingTo} <Icon name="arrowDown" />
         </button>
         out of {totalItems}
-      </p>
+        {toggleDropdown && (
+          <ul className={styles["pagination__info-dropdown"]}>
+            {itemsToShow?.map((item, index) => (
+              <li
+                className={styles["pagination__info-dropdown-item"]}
+                key={index + 1}
+                onClick={() => handleItemsPerPage(item)}
+              >
+                {item}
+              </li>
+            ))}
+          </ul>
+        )}
+      </div>
 
       <ReactPaginate
         previousLabel={<Icon name="arrowLeft" />}
