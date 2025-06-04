@@ -29,6 +29,8 @@ import StarFilled from "./star-filled.svg";
 import Star from "./star.svg";
 import NotFound from "./not-found.svg";
 import Loading from "./loading.svg";
+import Hamburger from "./hamburger.svg";
+import Cancel from "./cancel.svg";
 
 const icons = {
   favicon: Favicon,
@@ -62,6 +64,8 @@ const icons = {
   avatar: Avatar,
   notFound: NotFound,
   loading: Loading,
+  harmburger: Hamburger,
+  cancel: Cancel,
 };
 
 export type IconTypes = keyof typeof icons;

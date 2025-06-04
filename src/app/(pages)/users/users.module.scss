@@ -55,6 +55,9 @@
     padding: 30px;
     box-shadow: 3px 5px 20px 0px #0000000a;
     @include border-radius(4px);
+    @include respond(mobile-screen) {
+      width: fit-content;
+    }
     &-header {
       display: grid;
       grid-template-columns: 0.85fr 0.9fr 1.25fr 0.95fr 1.1fr 0.95fr;

@@ -6,10 +6,19 @@ import Icon from "../Icon";
 
 import styles from "./header.module.scss";
 
-const Header: React.FC = () => {
+interface HeaderProps {
+  handleToggleSidebar: () => void;
+}
+const Header: React.FC<HeaderProps> = ({ handleToggleSidebar }) => {
   return (
     <header className={styles["header"]}>
       <Icon name="logoSmall" className={styles["header__logo"]} />
+      <button
+        className={styles["header__menu-icon"]}
+        onClick={handleToggleSidebar}
+      >
+        <Icon name="harmburger" />
+      </button>
 
       <div className={styles["header__input-container"]}>
         <input

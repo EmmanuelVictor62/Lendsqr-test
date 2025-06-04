@@ -8,6 +8,26 @@
   align-items: center;
   padding: 30px;
   box-shadow: 3px 0px 20px 0px #0000000a;
+  @include respond(mobile-screen) {
+    width: 100%;
+    padding: 20px 10px;
+    justify-content: space-between;
+    gap: 15px;
+  }
+
+  &__logo {
+    @include respond(mobile-screen) {
+      display: none;
+    }
+  }
+
+  &__menu-icon {
+    display: none;
+    @include respond(mobile-screen) {
+      display: inline-flex;
+      width: 40px;
+    }
+  }
 
   &__input {
     flex: 1;
@@ -26,6 +46,10 @@
       margin-left: 20%;
       height: 40px;
       width: 400px;
+      @include respond(mobile-screen) {
+        width: 60%;
+        margin: 0px;
+      }
     }
     &-button {
       height: 100%;
@@ -40,20 +64,32 @@
   &__avatar {
     margin-left: 30px;
     @include border-radius(50%);
+    @include respond(mobile-screen) {
+      margin: 0px;
+    }
     &-wrapper {
       margin-left: auto;
       display: flex;
       align-items: center;
       margin-right: 30px;
+      @include respond(mobile-screen) {
+        margin: 0px;
+      }
     }
     &-doc-link {
       font-size: toRem(16px);
       font-weight: 400;
       color: $col-blue-1;
       text-decoration: underline;
+      @include respond(mobile-screen) {
+        display: none;
+      }
     }
     &-bell-icon {
       margin-left: 47px;
+      @include respond(mobile-screen) {
+        display: none;
+      }
     }
     &-name {
       margin-left: 10px;
