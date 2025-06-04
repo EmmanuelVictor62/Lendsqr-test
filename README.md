@@ -15,7 +15,6 @@ This repository contains the implementation of a frontend technical assessment f
 ## Pages Implemented
 
 - **Login Page** – Authentication UI built per design.
-- **Dashboard** – Visual representation of key metrics and navigation.
 - **Users Page** – Paginated and filterable user list from a mock API.
 - **User Details Page** – Displays detailed info retrieved from local storage based on selected user.
 
@@ -112,15 +111,15 @@ Jest is configured to handle module aliasing and SVG mocks via the `__mocks__/sv
 
 ## Notes
 
-- Mock API data is served from a local file (`services/mockUsers.ts`) and mimics paginated API behavior.
+- Mock API data is served from an endpoint stored on mocky.io and mimics paginated API behavior.
 - Unit tests include pagination functionality, and mock components are handled appropriately in Jest config.
 - Design was matched to the Figma spec, including responsiveness and visual hierarchy.
 
 ---
 
-## Video Review (Optional)
+## Video Review
 
-_A video review can be found [here](#)_ (replace this with Loom link if applicable).
+\_A video review can be found [here](https://www.loom.com/share/805af895530942bd8bbbdd829a43493e?sid=821d07a4-d165-4b5a-8668-03a20668d537).
 
 ---
 
