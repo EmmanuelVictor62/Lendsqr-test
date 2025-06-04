@@ -78,13 +78,13 @@ cd lendsqr-fe-test
 2. **Install dependencies**
 
 ```bash
-yarn
+npm install
 ```
 
 3. **Start the development server**
 
 ```bash
-yarn dev
+npm run dev
 ```
 
 The app will be accessible at `http://localhost:3000`
@@ -94,7 +94,7 @@ The app will be accessible at `http://localhost:3000`
 ## How to Run Tests
 
 ```bash
-yarn test
+npm run test
 ```
 
 Jest is configured to handle module aliasing and SVG mocks via the `__mocks__/svgMock.tsx` file. Tests include interaction and rendering validation for key components.
