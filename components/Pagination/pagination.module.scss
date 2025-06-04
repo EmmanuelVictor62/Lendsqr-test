@@ -37,6 +37,8 @@
     color: $col-grey-1;
     display: flex;
     align-items: center;
+    position: relative;
+
     &-btn {
       font-size: toRem(14px);
       font-weight: 500;
@@ -48,6 +50,21 @@
       margin: 0px 10px;
       background-color: rgba(33, 63, 125, 0.1);
       @include border-radius(4px);
+    }
+    &-dropdown {
+      position: absolute;
+      bottom: 34px;
+      left: 70px;
+      display: flex;
+      flex-direction: column;
+      background-color: $col-white;
+      @include border-radius(4px);
+      width: 60px;
+      &-item {
+        padding: 4px 6px;
+        border: 1px solid #e2e2e2;
+        cursor: pointer;
+      }
     }
   }
   &__active-page {

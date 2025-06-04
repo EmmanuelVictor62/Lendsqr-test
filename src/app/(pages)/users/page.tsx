@@ -33,10 +33,12 @@ const Users: React.FC = () => {
   const [currentPage, setCurrentPage] = useState<number>(0);
   const [toggleFilterDropdown, setToggleFilterDropdown] =
     useState<boolean>(false);
+  const [toggleItemCountDropdown, setToggleItemCountDropdown] =
+    useState<boolean>(false);
+  const [usersPerPage, setUsersPerPage] = useState<number>(10);
 
   const router = useRouter();
 
-  const usersPerPage = 10;
   const offset = currentPage * usersPerPage;
   const currentUsers = users.slice(offset, offset + usersPerPage);
   const activeUsers = users?.filter((user) => user?.status === "Active");
@@ -44,6 +46,11 @@ const Users: React.FC = () => {
 
   const handlePageChange = ({ selected }: { selected: number }) => {
     setCurrentPage(selected);
+  };
+
+  const handleUsersPerPage = (number: number) => {
+    setUsersPerPage(number);
+    setToggleItemCountDropdown(false);
   };
 
   const handleUpdateUserStatus = (email: string, newStatus: UserStatusType) => {
@@ -129,7 +136,7 @@ const Users: React.FC = () => {
       label: "Organization",
       type: "select",
       placeholder: "Organization",
-      options: Array.from(new Set(users?.map((user) => user?.organization))),
+      options: Array.from(new Set(allUsers?.map((user) => user?.organization))),
     },
     { name: "username", label: "Username", type: "text", placeholder: "User" },
     { name: "email", label: "Email", type: "text", placeholder: "Email" },
@@ -230,6 +237,12 @@ const Users: React.FC = () => {
           onPageChange={handlePageChange}
           itemsPerPage={usersPerPage}
           totalItems={users.length}
+          toggleDropdown={toggleItemCountDropdown}
+          itemsToShow={[10, 20, 30, 40]}
+          handleItemsPerPage={handleUsersPerPage}
+          handleToggleDropdown={() =>
+            setToggleItemCountDropdown(!toggleItemCountDropdown)
+          }
         />
         {toggleFilterDropdown && (
           <FilterDropdown

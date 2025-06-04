@@ -9,6 +9,9 @@
   grid-template-columns: 0.9fr 0.9fr 1.3fr 1fr 1.1fr 0.8fr 0.2fr;
   align-items: center;
   border-bottom: 1px solid rgba(33, 63, 125, 0.1);
+  @include respond(mobile-screen) {
+    gap: 20px;
+  }
   &__organization,
   &__username,
   &__email,
@@ -17,6 +20,10 @@
     font-size: toRem(14px);
     font-weight: 400;
     color: $col-grey-1;
+    @include respond(mobile-screen) {
+      width: 150px;
+      word-wrap: break-word;
+    }
   }
   &__menu {
     &-button {
