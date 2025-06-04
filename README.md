@@ -6,9 +6,6 @@ This repository contains the implementation of a frontend technical assessment f
 
 [https://emmanuel-victor-lendsqr-fe-test.netlify.app](https://emmanuel-victor-lendsqr-fe-test.netlify.app)
 
-## Figma Design Reference
-
-[Figma URL](https://www.figma.com/file/ZKILoCoIoy1IESdBpq3GNC/Frontend?type=design&node-id=5530-0)
 
 ---
 
