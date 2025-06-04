@@ -28,9 +28,8 @@ export default function Home() {
   const handleLogin: SubmitHandler<LoginInputs> = (data) => {
     console.log(data);
     setLoading(true);
-    setTimeout(() => {
-      router.push("/dashboard");
-    }, 2000);
+    router.push("/dashboard");
+
     setLoading(false);
   };
 
