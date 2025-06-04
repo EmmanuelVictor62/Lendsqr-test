@@ -11,6 +11,9 @@
   height: 100%;
   overflow: auto;
   @include hide-scrollbar;
+  @include respond(mobile-screen) {
+    padding-right: 20px;
+  }
   &__heading {
     font-size: toRem(24px);
     font-weight: 500;
@@ -20,6 +23,11 @@
     &-wrapper {
       display: flex;
       gap: 26px;
+      @include respond(mobile-screen) {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+      }
     }
   }
   &__empty-card {
@@ -64,6 +72,9 @@
       align-items: center;
       height: fit-content;
       width: 100%;
+      @include respond(mobile-screen) {
+        gap: 20px;
+      }
       &-button {
         font-size: toRem(12px);
         font-weight: 600;
@@ -72,6 +83,10 @@
         display: flex;
         align-items: flex-start;
         gap: 10px;
+        @include respond(mobile-screen) {
+          white-space: nowrap;
+          width: 150px;
+        }
       }
     }
     &-card-wrapper {

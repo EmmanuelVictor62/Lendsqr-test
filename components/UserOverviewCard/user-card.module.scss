@@ -14,16 +14,23 @@
   @include border-radius(4px);
   @include respond(mobile-screen) {
     min-width: 140px;
+    padding: 20px;
   }
   &__text {
     font-size: toRem(14px);
     font-weight: 500;
     color: $col-grey-1;
     text-transform: uppercase;
+    @include respond(mobile-screen) {
+      font-size: toRem(12px);
+    }
   }
   &__number {
     font-size: toRem(24px);
     font-weight: 500;
     color: $col-blue-1;
+    @include respond(mobile-screen) {
+      font-size: toRem(18px);
+    }
   }
 }
