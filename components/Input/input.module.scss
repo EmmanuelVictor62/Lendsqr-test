@@ -3,14 +3,14 @@
 @import "../../styles/abstracts/mixins";
 
 .input {
-  font-size: 14px;
+  font-size: toRem(14px);
   flex: 1;
   border: none;
   background-color: initial;
   height: 48px;
   &::placeholder {
     color: $col-grey-1;
-    font-size: 14px;
+    font-size: toRem(14px);
   }
   &:-webkit-autofill {
     background-color: initial !important;
@@ -21,7 +21,7 @@
     gap: 6px;
   }
   &__label {
-    font-size: 14px;
+    font-size: toRem(14px);
     color: $col-grey-1;
     font-weight: 500;
   }
@@ -34,12 +34,12 @@
   }
   &__password-button {
     font-family: $AvenirNext;
-    font-size: 12px;
+    font-size: toRem(12px);
     font-weight: 600;
     color: $col-light-blue-1;
   }
   &__error {
-    font-size: 12px;
+    font-size: toRem(12px);
     color: red;
     margin-top: 5px;
   }

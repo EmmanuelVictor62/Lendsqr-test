@@ -38,7 +38,7 @@ export const routes: RouteType[] = [
       },
       {
         label: "Services",
-        path: "/organizations",
+        path: "/services",
         icon: "settings",
       },
     ],
@@ -48,12 +48,12 @@ export const routes: RouteType[] = [
     children: [
       {
         label: "Preferences",
-        path: "/organizations",
+        path: "/preferences",
         icon: "slider",
       },
       {
         label: "Audit Logs",
-        path: "/organizations",
+        path: "/logs",
         icon: "clipboard",
       },
     ],

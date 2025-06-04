@@ -13,7 +13,7 @@
     padding-bottom: 28px;
     border-bottom: 1px solid rgba(33, 63, 125, 0.1);
     &-heading {
-      font-size: 16px;
+      font-size: toRem(16px);
       font-weight: 500;
       color: $col-blue-1;
     }
@@ -27,13 +27,13 @@
         gap: 8px;
 
         &-label {
-          font-size: 12px;
+          font-size: toRem(12px);
           color: $col-grey-1;
           text-transform: uppercase;
         }
 
         &-value {
-          font-size: 16px;
+          font-size: toRem(16px);
           font-weight: 500;
           color: $col-grey-1;
         }

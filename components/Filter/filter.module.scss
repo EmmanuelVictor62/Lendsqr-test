@@ -1,0 +1,46 @@
+@import "../../styles/abstracts/functions";
+@import "../../styles/abstracts/mixins";
+@import "../../styles/abstracts/variables";
+
+.filter-form {
+  width: 270px;
+  position: absolute;
+  top: 50px;
+  left: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 30px 20px;
+  background-color: $col-white;
+  border: 1px solid rgba(84, 95, 125, 0.14);
+  box-shadow: 3px 5px 20px 0px rgba(0, 0, 0, 0.04);
+  @include z-index(dropdown);
+  @include border-radius(4px);
+  &__field {
+    &-container {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      & input,
+      & select {
+        padding: 12px 20px;
+        border: 1px solid rgba(33, 63, 125, 0.2);
+        @include border-radius(8px);
+
+        &::placeholder {
+          font-size: toRem(14px);
+          color: $col-grey-1;
+        }
+      }
+    }
+    &-label {
+      font-size: toRem(14px);
+      font-weight: 500;
+      color: $col-grey-1;
+    }
+  }
+  &__button-wrapper {
+    display: flex;
+    gap: 14px;
+  }
+}

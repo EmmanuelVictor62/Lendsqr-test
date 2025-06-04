@@ -7,11 +7,12 @@
   flex-direction: column;
   gap: 30px;
   padding-right: 60px;
-  padding-bottom: 10px;
+  padding-bottom: 20px;
   height: 100%;
-  overflow: hidden;
+  overflow: auto;
+  @include hide-scrollbar;
   &__heading {
-    font-size: 24px;
+    font-size: toRem(24px);
     font-weight: 500;
     color: $col-blue-1;
   }
@@ -21,8 +22,30 @@
       gap: 26px;
     }
   }
+  &__empty-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    margin: 30px;
+    &-text {
+      font-size: toRem(14px);
+      color: $col-grey-1;
+      &-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+      }
+      &-description {
+        font-size: toRem(12px);
+        color: $col-grey-1;
+      }
+    }
+  }
   &__table {
-    height: 20%;
+    // height: 20%;
     background-color: $col-white;
     border: 1px solid #213f7d0f;
     display: flex;
@@ -39,7 +62,7 @@
       height: fit-content;
       width: 100%;
       &-button {
-        font-size: 12px;
+        font-size: toRem(12px);
         font-weight: 600;
         text-transform: uppercase;
         color: $col-grey-1;
@@ -55,10 +78,12 @@
       overflow: auto;
     }
     &-wrapper {
+      position: relative;
       display: flex;
       flex-direction: column;
       gap: 20px;
-      overflow: hidden;
+      // overflow: hidden;
+      // height: 100%;
     }
   }
 }

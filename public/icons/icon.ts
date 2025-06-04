@@ -27,6 +27,7 @@ import BackArrow from "./back-arrow.svg";
 import Avatar from "./avatar.svg";
 import StarFilled from "./star-filled.svg";
 import Star from "./star.svg";
+import NotFound from "./not-found.svg";
 
 const icons = {
   favicon: Favicon,
@@ -58,6 +59,7 @@ const icons = {
   starFilled: StarFilled,
   star: Star,
   avatar: Avatar,
+  notFound: NotFound,
 };
 
 export type IconTypes = keyof typeof icons;
